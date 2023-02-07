@@ -1,0 +1,15 @@
+﻿---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dog
+spec:
+  containers:
+    - command:
+        - "/bin/bash"
+        - "-c"
+        - "--"
+      args:
+        - "'while [ 1 == 1 ]; do echo '$(date +%s)' && sleep 1; done'"
+      image: busybox
+      name: pods-simple-container

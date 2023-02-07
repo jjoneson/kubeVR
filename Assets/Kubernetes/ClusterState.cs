@@ -92,10 +92,14 @@ public class ClusterState
                 {
                     Debug.Log($"Watcher: Error: {typeof(T).Name}");
                     Debug.Log(e.ToString());
+                    // Sleep for 5 seconds
+                    Thread.Sleep(5000);
+                    
                 },
                 () =>
                 {
                     Debug.Log($"Watcher: Connection Closed: {typeof(T).Name}");
+                    Thread.Sleep(5000);
                     resetCallback();
                     resetEvent.Set();
                 });
