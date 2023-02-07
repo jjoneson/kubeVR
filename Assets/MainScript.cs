@@ -51,7 +51,6 @@ public class MainScript : MonoBehaviour
         {
             print($"Creating {value.GetType().Name}: {key}");
             GameObject cube = Instantiate(k8sResourcePrefab);
-            cube.transform.Rotate(0, 90, 0);
             value.GameObject = cube;
             value.UpdateGameObject();
             dictionary.AddOrUpdate(key, value, (k, v) => v);

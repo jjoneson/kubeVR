@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using k8s.Models;
+using TMPro;
 
 namespace Unity.Template.VR.Kubernetes
 {
@@ -13,6 +15,13 @@ namespace Unity.Template.VR.Kubernetes
 
         public override void UpdateGameObject()
         {
+            TMP_Text resourceLabel = GameObject.GetComponentsInChildren<TMP_Text>()
+                .FirstOrDefault(t => t.name == "ResourceLabel");
+
+            if (resourceLabel is not null)
+            {
+                resourceLabel.text = $"{KubernetesObject.Namespace()}/{KubernetesObject.Name()}";
+            }
         }
     }
 }
